@@ -1,0 +1,44 @@
+\documentclass[a4paper]{devops_minutes}
+% Set the document language. The devops_minutes.cls file supports Dutch and English
+\usepackage[dutch]{babel}
+
+% Set the metadata of the meeting:
+\committee{DevOps}
+\members{$members}
+\chair{$chairman}
+\absent{}
+\guests{}
+\notetaker{$secretary}
+\date{$date}
+
+%Ap's kunnen worden toegewezen met \ap{[naam]}{[deadine]}{[beschrijving]}
+\begin{document}
+
+\header
+
+\section{Opening}
+
+$chairman opent de vergadering om .
+
+\section{Notulist}
+
+Er wordt genotuleerd door $secretary.
+
+\section{Ingekomen stukken}
+
+\section{AP's}
+
+$APList
+
+\section{WIIMB}
+
+$wiimb
+
+\section{Sluiting}
+
+$chairman sluit de vergadering om .
+
+\appendix
+\actionlist
+
+\end{document}
