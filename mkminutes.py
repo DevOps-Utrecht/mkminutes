@@ -1,5 +1,6 @@
 #!/usr/bin/python3.6
 import argparse
+from datetime import datetime
 from string import Template
 import config
 
@@ -9,7 +10,7 @@ parser.add_argument(
     "-d, --date",
     dest="minute_date",
     action="store",
-    default="2018-01-01",
+    default=datetime.today().strftime('%Y-%m-%d'),
     help="Date of the minute to be generated",
 )
 
