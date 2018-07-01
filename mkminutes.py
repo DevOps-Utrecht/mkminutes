@@ -3,6 +3,9 @@ import argparse
 from datetime import datetime
 from string import Template
 import config
+import os.path
+
+template_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "template.txt")
 
 # Set up command line arguments
 parser = argparse.ArgumentParser(description="Create a minute.tex file.")
@@ -28,7 +31,7 @@ args = parser.parse_args()
 mems = sorted(config.MEMBERS, key=str.lower)
 wiimb = ""
 for mem in mems:
-    wiimb += "\subsection{" + mem + "}\n\n\n"
+    wiimb += "\subsection{" + mem + "}\n\subsubsection{Wat heb je gedaan?}\n\subsubsection{Waar ben je mee bezig?\n\subsubsection{Welke problemen heb je?}\n\n\n"
 
 # Define the replacement dictionary
 d = {
@@ -41,12 +44,11 @@ d = {
 }
 
 # Process the dictionary
-template = open("template.txt")
+with open(template_path) as template:
+    src = Template(template.read())
 
-src = Template(template.read())
+    result = src.safe_substitute(d)
 
-result = src.safe_substitute(d)
-
-with open(f"{args.path}Notulen-{args.minute_date}.tex", "w") as file:
-    file.write(result)
-    print(f"Created {args.path}Notulen-{args.minute_date}.tex")
+    with open(f"{args.path}Notulen-{args.minute_date}.tex", "w") as file:
+        file.write(result)
+        print(f"Created {args.path}Notulen-{args.minute_date}.tex")
