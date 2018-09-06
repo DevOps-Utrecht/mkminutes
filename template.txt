@@ -28,6 +28,7 @@ Er wordt genotuleerd door $secretary.
 
 \section{AP's}
 
+\subsection*{Persoon: Wat te doen [Deadline]}
 \ap{Robin}{Voor je ze verstuurt}{Deze AP verwijderen}
 $APList
 
