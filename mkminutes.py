@@ -29,9 +29,9 @@ args = parser.parse_args()
 
 # Process some config
 mems = sorted(config.MEMBERS, key=str.lower)
-wiimb = ""
+wimbi = ""
 for mem in mems:
-    wiimb += "\subsection{" + mem + "}\n\subsubsection{Wat heb je gedaan?}\n\subsubsection{Waar ben je mee bezig?\n\subsubsection{Welke problemen heb je?}\n\n\n"
+    wimbi += "\subsection{" + mem + "}\n\subsubsection{Wat heb je gedaan?}\n\subsubsection{Waar ben je mee bezig?\n\subsubsection{Welke problemen heb je?}\n\n\n"
 
 # Define the replacement dictionary
 d = {
@@ -40,7 +40,7 @@ d = {
     "chairman": config.CHAIRMAN,
     "date": args.minute_date,
     "APList": None,
-    "wiimb":wiimb,
+    "wimbi":wimbi,
 }
 
 # Process the dictionary

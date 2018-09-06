@@ -3,7 +3,7 @@
 \usepackage[dutch]{babel}
 
 % Set the metadata of the meeting:
-\committee{DevOps}
+\committee{\devops}
 \members{$members}
 \chair{$chairman}
 \absent{}
@@ -31,9 +31,9 @@ Er wordt genotuleerd door $secretary.
 \ap{Robin}{Voor je ze verstuurt}{Deze AP verwijderen}
 $APList
 
-\section{WIIMB}
+\section{WIMBI}
 
-$wiimb
+$wimbi
 
 \section{Sluiting}
 
