@@ -1,4 +1,4 @@
-#!/usr/bin/python3.6
+#!/usr/bin/python
 import argparse
 from datetime import datetime
 from string import Template
@@ -21,7 +21,7 @@ parser.add_argument(
     "-t, --target",
     dest="path",
     action="store",
-    default="./",
+    default="./texFiles/",
     help="The path of the folder the .tex file should b saved to. (Defaults to './')",
 )
 
@@ -31,7 +31,7 @@ args = parser.parse_args()
 mems = sorted(config.MEMBERS, key=str.lower)
 wimbi = ""
 for mem in mems:
-    wimbi += "\subsection{" + mem + "}\n\subsubsection{Wat heb je gedaan?}\n\subsubsection{Waar ben je mee bezig?\n\subsubsection{Welke problemen heb je?}\n\n\n"
+    wimbi += "\subsection{" + mem + "}\n\subsubsection{Wat heb je gedaan?}\n\subsubsection{Waar ben je mee bezig?}\n\subsubsection{Welke problemen heb je?}\n\n\n"
 
 # Define the replacement dictionary
 d = {
@@ -48,6 +48,9 @@ with open(template_path) as template:
     src = Template(template.read())
 
     result = src.safe_substitute(d)
+
+    if not os.path.exists(args.path):
+        os.makedirs(args.path)
 
     with open(f"{args.path}Notulen-{args.minute_date}.tex", "w") as file:
         file.write(result)
